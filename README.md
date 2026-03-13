@@ -1,60 +1,81 @@
- Distributed URL Shortener with Analytics
+# 🔗 Distributed URL Shortener with Analytics
+
 <div align="center">
-Show Image
-Show Image
-Show Image
-Show Image
-Show Image
-A high-availability, multi-region URL shortener built with Flask, DynamoDB Global Tables, and Redis caching.
-Live Demo · Report Bug · Request Feature
+
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.x-000000?style=for-the-badge&logo=flask&logoColor=white)
+![DynamoDB](https://img.shields.io/badge/DynamoDB-Global_Tables-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-Cache-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+**A high-availability, multi-region URL shortener built with Flask, DynamoDB Global Tables, and Redis caching.**
+
+[Live Demo](#) · [Report Bug](https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics/issues) · [Request Feature](https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics/issues)
+
 </div>
 
-Table of Contents
+---
 
-About the Project
-Features
-Tech Stack
-Architecture
-Getting Started
+## 📌 Table of Contents
 
-Prerequisites
-Installation
-Configuration
+- [About the Project](#-about-the-project)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [API Endpoints](#-api-endpoints)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
+---
 
-Usage
-Project Structure
-API Endpoints
-Contributing
-License
-Contact
+## 📖 About the Project
 
+The **Distributed URL Shortener with Analytics** is a production-grade web application designed to convert long URLs into compact, shareable short links — all while tracking analytics and ensuring global availability.
 
-About the Project
-The Distributed URL Shortener with Analytics is a production-grade web application designed to convert long URLs into compact, shareable short links — all while tracking analytics and ensuring global availability.
-Built with a focus on scalability and high availability, this project leverages:
-
-DynamoDB Global Tables for multi-region data replication
-Redis caching for ultra-fast redirect resolution
-Flask as the lightweight and extensible web framework
+Built with a focus on **scalability** and **high availability**, this project leverages:
+- **DynamoDB Global Tables** for multi-region data replication
+- **Redis caching** for ultra-fast redirect resolution
+- **Flask** as the lightweight and extensible web framework
 
 Whether you're sharing marketing links, tracking campaign performance, or just simplifying long URLs, this tool handles it all with resilience and speed.
 
-Features
+---
 
-🌍 Multi-region availability via DynamoDB Global Tables
-⚡ Redis caching for low-latency URL lookups
-📊 Click analytics — track how often each link is used
-🔐 Custom short codes or auto-generated slugs
-🧾 Form validation using Flask-WTF
-🖥️ Clean web UI with templated HTML pages
-🔁 RESTful redirects with proper HTTP status codes
+## ✨ Features
 
+- 🌍 **Multi-region availability** via DynamoDB Global Tables
+- ⚡ **Redis caching** for low-latency URL lookups
+- 📊 **Click analytics** — track how often each link is used
+- 🔐 **Custom short codes** or auto-generated slugs
+- 🧾 **Form validation** using Flask-WTF
+- 🖥️ **Clean web UI** with templated HTML pages
+- 🔁 **RESTful redirects** with proper HTTP status codes
 
-Tech Stack
-LayerTechnologyBackendPython 3.x, FlaskForm HandlingFlask-WTFDatabaseAWS DynamoDB (Global Tables)CacheRedisTemplatingJinja2 (HTML Templates)FrontendHTML5, CSS3
+---
 
-Architecture
+## 🛠 Tech Stack
+
+| Layer         | Technology              |
+|---------------|-------------------------|
+| Backend       | Python 3.x, Flask       |
+| Form Handling | Flask-WTF               |
+| Database      | AWS DynamoDB (Global Tables) |
+| Cache         | Redis                   |
+| Templating    | Jinja2 (HTML Templates) |
+| Frontend      | HTML5, CSS3             |
+
+---
+
+## 🏗 Architecture
+
+```
 User Request
      │
      ▼
@@ -71,42 +92,63 @@ User Request
      └───────────────────────┘
                  │
           Redirect User
+```
 
-Getting Started
-Prerequisites
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
 Make sure you have the following installed:
 
-Python 3.x — Download here
-pip — comes bundled with Python
-Redis — Install guide
-AWS Account (for DynamoDB) — Sign up
-Git — Download here
+- **Python 3.x** — [Download here](https://www.python.org/downloads/)
+- **pip** — comes bundled with Python
+- **Redis** — [Install guide](https://redis.io/docs/getting-started/)
+- **AWS Account** (for DynamoDB) — [Sign up](https://aws.amazon.com/)
+- **Git** — [Download here](https://git-scm.com/)
 
-Installation
+### Installation
 
-Clone the repository:
+1. **Clone the repository:**
 
-bashgit clone https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics
+```bash
+git clone https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics
+```
 
-Navigate into the project directory:
+2. **Navigate into the project directory:**
 
-bashcd WorkFlow
+```bash
+cd WorkFlow
+```
 
-Create a virtual environment (recommended):
+3. **Create a virtual environment (recommended):**
 
-bashpython -m venv venv
+```bash
+python -m venv venv
 source venv/bin/activate        # On macOS/Linux
 venv\Scripts\activate           # On Windows
+```
 
-Install the required dependencies:
+4. **Install the required dependencies:**
 
-bashpip install flask
+```bash
+pip install flask
 pip install flask-wtf
+```
+
 Or install all at once using a requirements file (if available):
-bashpip install -r requirements.txt
-Configuration
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configuration
+
 Before running the app, configure your environment variables:
-bash# Flask
+
+```bash
+# Flask
 export FLASK_APP=app.py
 export FLASK_ENV=development
 export SECRET_KEY=your_secret_key_here
@@ -119,30 +161,36 @@ export AWS_REGION=your_region
 # Redis
 export REDIS_HOST=localhost
 export REDIS_PORT=6379
+```
 
-Never commit your credentials to version control. Use .env files or environment variables.
+> ⚠️ **Never commit your credentials to version control.** Use `.env` files or environment variables.
 
+---
 
-Usage
+## 💻 Usage
 
-Start the Flask development server:
+1. **Start the Flask development server:**
 
-bashpython app.py
+```bash
+python app.py
+```
 
-Open your browser and visit:
+2. **Open your browser and visit:**
 
+```
 http://localhost:5000
+```
 
-Shorten a URL:
+3. **Shorten a URL:**
+   - Enter a long URL in the input field
+   - Click **Shorten**
+   - Copy and share your new short link!
 
-Enter a long URL in the input field
-Click Shorten
-Copy and share your new short link!
+---
 
+## 📁 Project Structure
 
-
-
-Project Structure
+```
 Distributed-URL-Shortener-with-Analytics/
 │
 ├── app.py                  # Main Flask application entry point
@@ -159,28 +207,51 @@ Distributed-URL-Shortener-with-Analytics/
 │   └── js/
 │
 └── README.md               # Project documentation
+```
 
-API Endpoints
-MethodEndpointDescriptionGET/Home page — URL shortening formPOST/shortenShorten a given URLGET/<short_code>Redirect to the original URLGET/analytics/<id>View click analytics for a link
+---
 
-Contributing
+## 🔌 API Endpoints
+
+| Method | Endpoint          | Description                        |
+|--------|-------------------|------------------------------------|
+| GET    | `/`               | Home page — URL shortening form    |
+| POST   | `/shorten`        | Shorten a given URL                |
+| GET    | `/<short_code>`   | Redirect to the original URL       |
+| GET    | `/analytics/<id>` | View click analytics for a link    |
+
+---
+
+## 🤝 Contributing
+
 Contributions are welcome! Here's how to get started:
 
-Fork the repository
-Create a new branch: git checkout -b feature/your-feature-name
-Make your changes and commit: git commit -m 'Add some feature'
-Push to your branch: git push origin feature/your-feature-name
-Open a Pull Request
+1. **Fork** the repository
+2. Create a new branch: `git checkout -b feature/your-feature-name`
+3. Make your changes and **commit**: `git commit -m 'Add some feature'`
+4. **Push** to your branch: `git push origin feature/your-feature-name`
+5. Open a **Pull Request**
 
 Please make sure your code follows PEP 8 style guidelines and includes appropriate comments.
 
-License
-Distributed under the MIT License. See LICENSE for more information.
+---
 
-Contact
-Ganesh — @Ganesh-a0576
-Project Link: https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics
+## 📄 License
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+---
+
+## 📬 Contact
+
+**Ganesh** — [@Ganesh-a0576](https://github.com/Ganesh-a0576)
+
+Project Link: [https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics](https://github.com/Ganesh-a0576/Distributed-URL-Shortener-with-Analytics)
+
+---
 
 <div align="center">
+
 ⭐ If you found this project helpful, please consider giving it a star!
+
 </div>
